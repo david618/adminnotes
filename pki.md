@@ -1,8 +1,17 @@
-#PKI
+# PKI
 
 Here are various useful commands for managing pki.
 
-##Get Certificate from Server
+## Copy Private Key to Server
+
+Copy the centos.pem private key to centos user on server named p1.
+<pre>
+$ ssh-copy-id -i centos.pem centos@p1
+</pre>
+
+You'll be prompted for centos's password; after this you'll be able to ssh without a password.
+
+## Get Certificate from Server
 Sometimes you need to export the certificate from a server so you can add it as a trusted server.
 
 <pre>
