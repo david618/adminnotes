@@ -1,9 +1,9 @@
 # Measure Counts on HUB and SAT
 
-Created this bash script to collect counts on a Kafka topic and Elasticsearch Index.
+Created this bash script to collect counts on a Kafka topic and Elasticsearch Index.  This script needs you to know the broker ip and port and elasticsearch ip and port.  
 
-<pre>
 getcount.sh
+<pre>
 #!/bin/bash
 
 kafkats=$(date +%s)
@@ -13,36 +13,39 @@ elasticts=$(date +%s)
 elasticcnt=$(curl -s http://172.17.2.6:9200/websats/websats/_count | jq .count)
 
 echo ${kafkats},${kafkacnt},${elasticts},${elasticcnt}
+</pre>
 
 
-This script does gather info and creates getcounts.sh 
+This script gathers info and creates getcounts.sh 
+creategetcounts.sh
+<pre>
 #!/bin/bash
 hubname="hub01"
 echo -n "What is the hub name (${hubname}): "
 read INP
 if [ ! -z "${INP}" ]; then
-DOCKER_TAG=${INP}
+hubname=${INP}
 fi
 
 satname="sat01"
 echo -n "What is the sat name (${satname}): "
 read INP
 if [ ! -z "${INP}" ]; then
-DOCKER_TAG=${INP}
+satname=${INP}
 fi
 
 topic="websats-in"
 echo -n "What is the sit name (${topic}): "
 read INP
 if [ ! -z "${INP}" ]; then
-DOCKER_TAG=${INP}
+topic=${INP}
 fi
 
 datasetname="websats"
 echo -n "What is the datasetname (${datasetname}): "
 read INP
 if [ ! -z "${INP}" ]; then
-DOCKER_TAG=${INP}
+datasetname=${INP}
 fi
 
 echo "Creating getcounts.sh"
