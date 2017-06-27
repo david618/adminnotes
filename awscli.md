@@ -5,7 +5,9 @@
 <pre>
 sudo yum -y install epel-release
 sudo yum -y install python-pip
+pip install --upgrade --user awscli
 </pre>
+
 
 ## Configure AWS CLI
 <pre>
