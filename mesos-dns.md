@@ -20,7 +20,7 @@ _taskmanager.trinity._tcp.marathon.mesos. 60 IN	SRV 0 0 28542 taskmanager.trinit
 </pre>
 
 
-### Using Curl
+## Using Curl
 
 <pre>
 curl -v http://m1/mesos_dns/v1/enumerate 
@@ -37,6 +37,31 @@ Cut and paste token into next command replacing {token}.
 <pre>
 curl -X GET -k -H "Authorization:token={token}"  http://m1/mesos_dns/v1/enumerate
 </pre>
+
+## Using Python
+
+You'll need to install python-dig 
+
+<pre>
+sudo yum -y install python-dns
+</pre>
+
+<pre>
+>>> import dns.resolver
+>>> answers = dns.resolver.query('taskmanager.trinity.marathon.mesos', 'A')
+>>> answers[0].address
+'172.17.2.4'
+>>> answers = dns.resolver.query('_taskmanager.trinity._tcp.marathon.mesos', 'SRV')
+>>> answers[0].port
+28542
+>>> for ans in answers:
+...     print ans.port
+... 
+28542
+28541
+</pre>
+
+
 
 ## References
 
