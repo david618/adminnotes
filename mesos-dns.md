@@ -32,10 +32,10 @@ You can retrieve the token
 curl -X POST -k -H 'Content-Type: application/json' -d '{"uid":"admin","password":"YOUR PASSWORD"}' https://m1/acs/api/v1/auth/login
 </pre>
 
-Cut and paste token into next command.
+Cut and paste token into next command replacing {token}.
 
 <pre>
-curl -X GET -k -H "Authorization:token=<token>"  http://m1/mesos_dns/v1/enumerate
+curl -X GET -k -H "Authorization:token={token}"  http://m1/mesos_dns/v1/enumerate
 </pre>
 
 ## References
