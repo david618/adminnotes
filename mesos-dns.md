@@ -22,6 +22,8 @@ _taskmanager.trinity._tcp.marathon.mesos. 60 IN	SRV 0 0 28542 taskmanager.trinit
 
 ## Using Curl
 
+There are some help pages [here](https://github.com/mesosphere/mesos-dns/blob/master/docs/docs/http.md)
+
 <pre>
 curl -v http://m1/mesos_dns/v1/enumerate 
 </pre>
