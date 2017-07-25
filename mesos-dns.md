@@ -62,6 +62,50 @@ sudo yum -y install python-dns
 </pre>
 
 
+## Frameworks (e.g. Kafka)
+
+Deployed Kafka with name "hub-hub01"
+
+<pre>
+$ dig +noall +answer hub-hub01.marathon.mesos
+hub-hub01.marathon.mesos. 60	IN	A	172.17.2.4
+
+$ dig +noall +answer _hub-hub01._tcp.marathon.mesos SRV
+_hub-hub01._tcp.marathon.mesos.	60 IN	SRV	0 0 11398 hub-hub01-hoyw4-s4.marathon.mesos.
+
+$ dig +noall +answer kafka-0-broker.hub-hub01.mesos
+kafka-0-broker.hub-hub01.mesos.	60 IN	A	172.17.2.5
+
+$ dig +noall +answer _kafka-0-broker._tcp.hub-hub01.mesos SRV
+_kafka-0-broker._tcp.hub-hub01.mesos. 60 IN SRV	0 0 1025 kafka-0-broker-fy7re-s2.hub-hub01.mesos.
+</pre>
+
+
+Deployed Elastic with name "sats-sat01"
+
+<pre>
+$ dig +noall +answer sats-sat01.marathon.mesos
+sats-sat01.marathon.mesos. 60	IN	A	172.17.2.8
+
+$ dig +noall +answer _sats-sat01._tcp.marathon.mesos SRV
+_sats-sat01._tcp.marathon.mesos. 60 IN	SRV	0 0 6679 sats-sat01-ugj8c-s1.marathon.mesos.
+
+$ dig +noall +answer data-0-node.sats-sat01.mesos
+data-0-node.sats-sat01.mesos. 60 IN	A	172.17.2.8
+
+$ dig +noall +answer _data-0-node._tcp.sats-sat01.mesos SRV
+_data-0-node._tcp.sats-sat01.mesos. 60 IN SRV	0 0 1025 data-0-node-dpzep-s1.sats-sat01.mesos.
+_data-0-node._tcp.sats-sat01.mesos. 60 IN SRV	0 0 1026 data-0-node-dpzep-s1.sats-sat01.mesos.
+
+$ dig +noall +answer _ingest-0-node._tcp.sats-sat01.mesos SRV
+_ingest-0-node._tcp.sats-sat01.mesos. 60 IN SRV	0 0 1027 ingest-0-node-sjfq4-s1.sats-sat01.mesos.
+_ingest-0-node._tcp.sats-sat01.mesos. 60 IN SRV	0 0 1028 ingest-0-node-sjfq4-s1.sats-sat01.mesos.
+
+$ dig +noall +answer _master-0-node._tcp.sats-sat01.mesos SRV
+_master-0-node._tcp.sats-sat01.mesos. 60 IN SRV	0 0 9300 master-0-node-jgtxj-s3.sats-sat01.mesos.
+_master-0-node._tcp.sats-sat01.mesos. 60 IN SRV	0 0 1026 master-0-node-jgtxj-s3.sats-sat01.mesos.
+
+</pre>
 
 ## References
 
