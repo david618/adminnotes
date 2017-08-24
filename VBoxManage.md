@@ -33,10 +33,12 @@ done
 
 ## Script to Get Names for Group
 
+**NOTE:** Set VMGRP. Start with slash and end with $.  The name of the Group the VM's are in.
+
 <pre>
 #!/bin/bash
 
-VMGRP="CentOS7_105"
+VMGRP="/CentOS7_105$"
 for a in $(VBoxManage list vms | cut -d ' ' -f 2 | xargs); 
 do
     NM=$(VBoxManage showvminfo ${a} | grep ^Name | cut -d ':' -f 2 | tr -d '[:space:]')    
@@ -117,3 +119,54 @@ do
     VBoxManage snapshot $vmid restore base
 done
 </pre>
+
+## Control VM Script
+
+Create a file with the VM's.
+
+<pre>
+cat dcos_vms.txt
+m1 {c3263537-6195-4b91-91ab-ca5e42b7ded9}
+p1 {52646b04-7401-4360-a417-9d9ab96d901c}
+a1 {fc6e55e7-9ad0-4e98-963c-da87411e4072}
+a2 {d54ef809-72a7-4322-a5a2-aa01474d61e8}
+a3 {2be366a0-af37-4c1b-8776-87b44b3fc2a6}
+boot {1542eb74-bb65-4b14-b409-e9904b64454a}
+</pre>
+
+Then create a script to control them
+
+<pre>
+cat dcos_control.sh
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+  echo "You must specify a command. start, stop, poweroff"
+  exit 1
+fi
+
+vms=$(cat dcos_vms.txt)
+
+vmids=$(echo "$vms" | cut -d ' ' -f 2)
+
+for vmid in $vmids
+do
+    case $1 in
+    "start")
+        VBoxManage  startvm $vmid --type headless
+        ;;
+    "stop")
+        VBoxManage  controlvm $vmid savestate
+        ;;
+    "poweroff")
+        VBoxManage  controlvm $vmid acpipowerbutton
+        ;;
+    *)
+        echo "unrecognized command"
+        ;;
+    esac
+
+done
+</pre>
+
+This script can be used to start, stop, poweroff the VM's listed in dcos_vms.txt
