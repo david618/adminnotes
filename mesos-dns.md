@@ -1,5 +1,25 @@
 # mesos-dns
 
+## Configure Non-cluster Server to access DNS
+
+For server on same network; but not a slave or master.
+
+You can configure dns for the server using an IP from the network.  
+
+For example if m1 is running on ip 10.27.51.47
+
+<pre>
+# nmcli connection modify Wired\ connection\ 1 ipv4.dns 10.27.51.47
+# nmcli connection modify Wired\ connection\ 1 ipv4.ignore-auto-dns yes
+</pre>
+
+On reboot you can now ping items.
+
+<pre>
+$ ping marathon.mesos
+</pre>
+
+
 ## Using DIG 
 
 From any agent you can get the IP of a task.  
