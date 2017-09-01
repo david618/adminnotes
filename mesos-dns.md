@@ -83,7 +83,6 @@ sudo yum -y install python-dns
 28541
 </pre>
 
-
 ## Frameworks (e.g. Kafka)
 
 Deployed Kafka with name "hub-hub01"
@@ -128,6 +127,37 @@ _master-0-node._tcp.sats-sat01.mesos. 60 IN SRV	0 0 9300 master-0-node-jgtxj-s3.
 _master-0-node._tcp.sats-sat01.mesos. 60 IN SRV	0 0 1026 master-0-node-jgtxj-s3.sats-sat01.mesos.
 
 </pre>
+
+### Elastic
+
+<pre>
+$ dig +noall +answer elastic.marathon.mesos
+elastic.marathon.mesos.	60	IN	A	192.168.0.144
+$ dig +noall +answer _elastic._tcp.marathon.mesos SRV
+_elastic._tcp.marathon.mesos. 60 IN	SRV	0 0 17335 elastic-kgm6g-s0.marathon.mesos.
+$ curl 192.168.0.144:17335/v1/endpoints
+[
+  "coordinator-http",
+  "coordinator-transport",
+  "data-http",
+  "data-transport",
+  "master-http",
+  "master-transport"
+]
+
+$ curl 192.168.0.144:17335/v1/endpoints/data-http
+{
+  "address": ["192.168.0.142:1025"],
+  "dns": ["data-0-node.elastic.autoip.dcos.thisdcos.directory:1025"],
+  "vip": "data.elastic.l4lb.thisdcos.directory:9200"
+}
+
+$ curl 192.168.0.144:17335/v1/endpoints/data-transport
+{
+  "address": ["192.168.0.142:1026"],
+  "dns": ["data-0-node.elastic.autoip.dcos.thisdcos.directory:1026"],
+  "vip": "data.elastic.l4lb.thisdcos.directory:9300"
+}
 
 ## References
 
