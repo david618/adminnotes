@@ -30,5 +30,20 @@ aws s3 cp s3://mobilephonedata/part_r_00499.csv /home/azureuser/
 aws s3 sync s3://mobilephonedata/part_r_00499.csv /home/azureuser/mobilephonedata
 </pre>
 
+## Upload file in folder (Bash Script)
 
+For example to upload files planes00001 to planes00012 to aws.
 
+<pre>
+#!/bin/bash
+
+for i in {1..12}; do
+  if [ "$i" -le 9 ]; then
+     filename=planes0000${i}
+  else
+     filename=planes000${i}
+  fi
+  echo ${filename}
+  aws s3 cp ${filename} s3://createroutedata
+done#!/bin/bash
+</pre>
