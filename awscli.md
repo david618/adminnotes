@@ -45,5 +45,5 @@ for i in {1..12}; do
   fi
   echo ${filename}
   aws s3 cp ${filename} s3://createroutedata
-done#!/bin/bash
+done
 </pre>
