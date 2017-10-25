@@ -144,6 +144,8 @@ tmpfs           100M     0  100M   0% /run/user/0
 Notice the 4.1T drive is mounted to /data.
 
 
+## For AWS
 
+Create a Volume and attach to the EC2 instance.  
 
 
