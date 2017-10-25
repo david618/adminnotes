@@ -1,14 +1,27 @@
 # AWS CLI
 
 
-## Install AWS CLI on CentOS
+## Install AWS CLI 
+
+### CentOS
 <pre>
 sudo yum -y install epel-release
 sudo yum -y install python-pip
 pip install --upgrade --user awscli
 </pre>
 
+### MacOS
 
+<pre>
+sudo easy_install awscli
+</pre>
+
+or
+
+<pre>
+brew install awscli
+</pre>
+ 
 ## Configure AWS CLI
 <pre>
 aws configure
