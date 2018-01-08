@@ -10,6 +10,8 @@ sudo yum -y install python-pip
 pip install --upgrade --user awscli
 </pre>
 
+**Note:** For RHEL 6 you might need to add .local/bin to your PATH
+
 ### MacOS
 
 <pre>
