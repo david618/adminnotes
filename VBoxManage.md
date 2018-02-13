@@ -170,3 +170,18 @@ done
 </pre>
 
 This script can be used to start, stop, poweroff the VM's listed in dcos_vms.txt
+
+
+## Compress VM
+
+The disks (vdi) are often configured to grow on demand; however, they don't shrink automatically.  You can find yourself with a VM that has less than 8GB os usage (du -h /) taking over 100GB of space on the host machine.
+
+On linux Guest:
+- Zero out space: `dd if=/dev/zero of=/var/tmp/bigemptyfile bs=4096k`
+- Delete file: `rm /var/tmp/bigemptyfile`
+
+Shutdown the VM.
+
+Then run command to compress: `vboxmanage modifymedium --compact mint18.vdi`
+
+Both steps can take serveral minutes.
