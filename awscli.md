@@ -12,6 +12,8 @@ pip install --upgrade --user awscli
 
 **Note:** For RHEL 6 you might need to add .local/bin to your PATH
 
+**Note:** 15 Feb 18: botocore was updated 16 hours ago and now awscli won't install. Error `No matching distribution found for botocore==1.8.43 (from awscli)`.   Work around run this command first: <pre>sudo pip install boto3</pre>
+
 ### MacOS
 
 <pre>
