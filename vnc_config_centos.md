@@ -101,6 +101,6 @@ Change NSG rule for master to allow connections to port 5901.
 Edit /usr/bin/vncserver to change default ports from 5901 to something else.
 
 ### Connect 
-- Linux: vnclient (e.g. 52.175.215.224:1) or remmina with vnc-plugin (52.175.215.224:5901)
+- Linux: vncviewer (e.g. 52.175.215.224:1) or remmina with vnc-plugin (52.175.215.224:5901)
 - MAC: Screen Sharing (vnc://52.175.215.224:5901)
 - Windows: Example Client - http://tigervnc.org/ Download Page: https://github.com/TigerVNC/tigervnc/releases (TigerVNC)
