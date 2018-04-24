@@ -36,3 +36,9 @@ To pull just the value from a field.
 jq '.["master/messages_status_update"]' test.json
 11
 </pre>
+
+
+## Convert JSON to compact format
+
+`jq -c . a4iot_pretty_websats.json > a4iot_websats.json`
+
