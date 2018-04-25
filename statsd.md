@@ -16,3 +16,6 @@ Overview
 - graphite-api (port 8888); Alternative to Graphite-web without built-in dashboard
 - python-carbon: Component of Graphic; retrieves metrics and stores them
 
+## Graphite-API
+
+[Graphite-API Docuemntation](http://graphite-api.readthedocs.io/en/latest/api.html)
