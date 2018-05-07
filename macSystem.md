@@ -23,3 +23,13 @@ Capture Picture of Screent: Window Key ) Shift 4
 Capture Picture of Window : Window Key ) Shift 3
 
 
+## Vimrc
+
+Vim by default has no colors enabled.  
+
+Create .vimrc in home directory and add
+
+```
+filetype plugin indent on
+syntax on
+```
