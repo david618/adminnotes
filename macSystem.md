@@ -19,7 +19,7 @@ The iMovie app can be used to provide voice over on the video.
 
 ## Screen Shot
 
-Capture Picture of Screent: Window Key ) Shift 4 
+Capture Picture of Screen: Window Key ) Shift 4 
 Capture Picture of Window : Window Key ) Shift 3
 
 
