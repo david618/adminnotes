@@ -25,7 +25,14 @@ or
 <pre>
 brew install awscli
 </pre>
- 
+
+### Ubuntu 18.04
+
+```
+sudo apt-get install awscli
+```
+
+
 ## Configure AWS CLI
 <pre>
 aws configure
