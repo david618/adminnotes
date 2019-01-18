@@ -14,6 +14,14 @@ sudo yum -y install azure-cli
 sudo yum -y install jq
 ```
 
+## Login
+
+```
+az login
+```
+
+Follow directions on output.
+
 ## List resize options
 
 
