@@ -22,9 +22,21 @@ az login
 
 Follow directions on output.
 
-## List resize options
+## Resize VM
 
+[Change Instance Type](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/change-vm-size)
 
 ```
 az vm list-vm-resize-options --resource-group djdsetest --name djdsetesta1 --output table
 ```
+
+Now resize
+
+```
+az vm resize --resource-group djdsetest --name djdsetesta1 --size Standard_D32_v3
+```
+
+**Note:** Tried on VM created by AKS; however, it failed with storage accounty type Premium_LRS is not supported.
+
+
+
