@@ -18,3 +18,12 @@ git add . --all
 git commit -m "restored"
 push --force
 </pre>
+
+
+## Creating Web Page(s) for GitHub Repos
+
+The [pages](https://pages.github.com/) explains how to create a repo with web content for your GitHub repo.
+
+The web page is tied to your github username for example [https://david618.github.io/](https://david618.github.io/)
+
+You make changes to web content in repo and they appear as web content. 
