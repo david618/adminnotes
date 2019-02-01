@@ -2,6 +2,27 @@
 
 Here are various useful commands for managing pki.
 
+## Generate Private Key
+
+The ssh-keygen create a key pair (private and public)
+
+To create without prompt for passphrase and no email.
+
+```
+ssh-keygen -f user -t rsa -N '' -C ''
+```
+
+Then ssh pub key to the users .ssh folder.
+
+```
+mkdir /home/user/.ssh
+sudo cp user.pub /home/user/.ssh/authorized_keys
+```
+Pass private key to the user.
+
+Now the user can login using ```ssh -i user user@host-ip```
+
+
 ## Copy Private Key to Server
 
 Copy the centos.pem private key to centos user on server named p1.
