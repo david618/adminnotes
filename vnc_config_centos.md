@@ -13,80 +13,85 @@ Then installed DC/OS with 1 5 1 leaving m2 and m3 as test nodes.
 
 Install nodes as Public Agents; then stop and disable. This is just an easy way to configure the nodes so they have Mesos-DNS.
 
-<pre>
+```
 sudo curl boot/install.sh
 sudo bash install.sh slave_public
 
 systemctl stop dcos-mesos-slave
 systemctl disable dcos-mesos-slave
-</pre>
+```
 
 ## Install GNOME
 
-<pre>
-$ sudo su - 
-# yum -y groupinstall "GNOME Desktop"
-</pre>
+```
+sudo su - 
+yum update
+yum -y groupinstall "GNOME Desktop"
+```
 
 Takes a couple of mins (818 packages)
 
 ## Create VNC User
 
-<pre>
-# useradd -G wheel david
-# passwd david
-</pre>
+```
+useradd -G wheel david
+passwd david
+```
 
 Optional: Add line /etc/sudoers wheel group can sudo without a password
 
 
 ## Install and Configure vncserver
 
-<pre>
-# yum -y install tigervnc-server
-# cd /lib/systemd/system
-# cp vncserver@.service vncserver@:1.service
-# vi vncserver@:1.service
-</pre>
+```
+yum -y install tigervnc-server
+cd /lib/systemd/system
+cp vncserver@.service vncserver@:1.service
+vi vncserver@:1.service
+```
 
 Change <USER> to david 
 
 ## Configure VNC first time
 
-<pre>
-# su - david
-$ vncserver 
-</pre>
+```
+su - david
+vncserver 
+```
 
 Create a passowrd for VNC access (can/should be different thant user password)
 
 Stop vnc.
 
-<pre>
+```
 $ vncserver -kill :1
-</pre>
+```
 
 Configure vnc
 
-<pre>
-$ cd .vnc
-$ vi xstartup 
-</pre>
+```
+cd .vnc
+vi xstartup 
+```
 
 After exec line add gnome-session line
-<pre>
-exec /etc/X11/xinit/xinitrc
+```
 gnome-session -session=gnome-classic &
-</pre>
+```
+
+Comment out 
+```
+#vncserver -kill $DISPLAY
+```
 
 $ exit
 
 ## Configure Service
 
-<pre>
-# systemctl start vncserver@:1.service
-# systemctl status vncserver@:1.service
-</pre>
+```
+systemctl start vncserver@:1.service
+systemctl status vncserver@:1.service
+```
 
 You could "enable"; however, I just start it when I want to work.  Less of a security risk.
 
