@@ -38,5 +38,11 @@ az vm resize --resource-group djdsetest --name djdsetesta1 --size Standard_D32_v
 
 **Note:** Tried on VM created by AKS; however, it failed with storage accounty type Premium_LRS is not supported.
 
+## List Quota and Usage
+
+```
+az vm list-usage --location "East US 2" -o table
+```
+
 
 
