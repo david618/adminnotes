@@ -44,5 +44,11 @@ az vm resize --resource-group djdsetest --name djdsetesta1 --size Standard_D32_v
 az vm list-usage --location "East US 2" -o table
 ```
 
+or 
+
+```
+az vm list-usage --location westus2 -o table | grep DSv3
+```
+
 
 
