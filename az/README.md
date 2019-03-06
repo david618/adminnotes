@@ -50,5 +50,15 @@ or
 az vm list-usage --location westus2 -o table | grep DSv3
 ```
 
+Find Used and Limit for DSv3 
+
+```
+LOC=westus2
+DSV3USED=$(az vm list-usage --location ${LOC} -o tsv |  awk -F'\t' '/DSv3/ {print $1}')
+DSV3LIMIT=$(az vm list-usage --location ${LOC} -o tsv |  awk -F'\t' '/DSv3/ {print $2}')
+DSV3AVAIL=$((${DSV3LIMIT}-${DSV3USED}))
+echo "There are ${DSV3AVAIL} DSv3 cores available in ${LOC}"
+```
+
 
 
