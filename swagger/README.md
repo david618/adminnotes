@@ -56,6 +56,17 @@ Shows Petstore swagger info.
 Add ```http://localhost:9000/assets/swagger.json``` and explore then you the correct API.
 
 
+## Using Java Spring
+
+Export Spring.
+
+Unzip exported framework.
+
+```
+java -jar target/swagger-spring-1.0.0.jar
+```
+
+
 
 
 
