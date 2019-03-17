@@ -24,6 +24,11 @@ You can export your configuration to yaml.
 
 ## Generate Server Stub
 
+From Docker image there is no export; however, on ```https://editor.swagger.io```; there is an export option.
+
+**Note:** I tried [Swagger CodeGen](https://swagger.io/tools/swagger-codegen/) but the exported often did not work following [wiki](https://github.com/swagger-api/swagger-codegen/wiki/server-stub-generator-howto).  
+
+
 Many options including Play ```java-play-framework```.  Downloads as a zip ```java-play-framework-server-generated.zip```.
 
 ## Start Up
