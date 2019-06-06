@@ -1,6 +1,8 @@
 # Portworx 
 
-## Remove Nodes
+## Remove Nodes from AKS
+
+**WARNING:** There is a risk you'll lose data or corrupt Portworx in this process.  When we move to Cloud drives this will no longer be an issue.
 
 ### Find the highest node 
 
@@ -51,3 +53,11 @@ Node you want to delete should be in Maintenance mode.  Using ID delete.
 ```
 /opt/pwx/bin/pxctl cluster delete  02166b89-8c56-40db-9806-16c1d0d949bf
 ```
+
+### Scale AKS Down
+
+Repeat the steps above for each node.  Be sure to remove nodes with highest suffixes.
+
+Once done from Azure Portal scale the AKS down (e.g. 10 to 6).  AKS should remove the higher indexed nodes.
+
+
