@@ -22,6 +22,16 @@ az login
 
 Follow directions on output.
 
+## Corrupted Config
+
+The az login stores configuraton locally.  For Mac and Linuix it creates a folder in your hold directory ``.azure``.
+
+At one point when I was purging Service Principals via Azure Portal; I accidentally deleted a Service Principal that was stored in the configuration for aks configuration.  The file was ``aksServicePrincipal.json``.  
+
+
+I deleted that file; but still was having some issues with az cli.  The final solution was to delete .azure folder.  After deleting; did an ``az login`` and I was back in business.
+
+
 ## Resize VM
 
 [Change Instance Type](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/change-vm-size)
