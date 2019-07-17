@@ -3,6 +3,8 @@
 
 Lessons learned when trying to do a rolling restart of AKS nodes.  The following is the findings trying three different approaches.
 
+**Bottom Line:** Based on the following results Drain/Restart is the best.
+
 ### Kubectl Commands
 
 - Check Node Status: ``kubectl get nodes -o wide``
