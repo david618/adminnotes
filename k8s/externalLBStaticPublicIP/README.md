@@ -1,13 +1,13 @@
-#### External Load Balancer with Static Public IP
+### External Load Balancer with Static Public IP
 
 
-##### Create Public IP
+#### Create Public IP
 
 ```
 az network public-ip create -g MC_dj0717a_dj0717a-cluster_eastus2 -n dj0717a-tomcat --dns-name dj0717a-tomcat --allocation-method Static
 ```
 
-##### Create Deployment
+#### Create Deployment
 
 
 Used this approach to connect to my tomcat deployment.
@@ -34,7 +34,7 @@ spec:
         - containerPort: 8080
 ```
 
-##### Create Load Balancer
+#### Create Load Balancer
 
 Look up the IP and use it in the service manifest.
 
