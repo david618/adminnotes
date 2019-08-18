@@ -32,6 +32,32 @@ brew install awscli
 sudo apt-get install awscli
 ```
 
+#### Lastest Version
+
+```
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+```
+
+```
+curl -O https://bootstrap.pypa.io/get-pip.py
+python get-pip.py --user
+```
+
+```
+vi .bashrc
+```
+
+Add ~/.local/bin to path
+
+PATH=~/.local/bin:$PATH
+
+```
+. .bashrc
+pip install awscli --upgrade --user
+```
+
+
 
 ## Configure AWS CLI
 <pre>
