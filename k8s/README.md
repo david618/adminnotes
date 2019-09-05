@@ -1,5 +1,13 @@
 ## Kubernetes 
 
+### Watch Command
+
+The linux watch command when running kubectl get pods doesn't work well.  Adding a clear redirected to /dev/null provides a clean output.
+
+```
+watch -n 5 "clear > /dev/null ;kubectl -n kube-system get pods"
+```
+
 
 ### Delete Pods in Completed or Error Status
 
