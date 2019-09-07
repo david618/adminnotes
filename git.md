@@ -1,5 +1,54 @@
 # git
 
+### No Authentication
+
+If the repo has no Authentication you can just clone with git ```git clone http://github.com/david618/rttest```
+
+### Regular Authentication 
+
+Same as above; however, you'll be prompted for username and password.
+
+### Two Factor Authentication
+
+Regular commands do not work.  Two options one Personal Access Token or SSH Key.
+
+#### Personal Access Token
+
+From GitHub settings under develop settings.  Generate a access token.  Give the token repo and gist scopes.
+
+#### SSH keys
+
+Generate a key pair.
+
+```
+ssh-keygen
+``` 
+
+Give the key a name.  For example ```my-github-key```.  You can optionally set a password; however, everytime you use the key you'll need to enter that password.  
+
+In Github Settings under SSH and GPG keys add new SSH key.  Give it a name and paste in the public key (e.g. Contents of my-github-key.pub)
+
+Using the Key
+
+Start ssh-agent
+
+```
+eval `ssh-agent -s`
+```
+
+Add your private key
+
+```
+ssh-add my-github-key
+```
+
+Now you can use git.
+
+```
+git clone git@github.com:ArcGIS/trinity-operations.git
+```
+
+
 ## Restore to Previous Check in
 
 After a couple of checkin I figured out I had lost a bunch of code and messed up.  I used these command to restore the project to a previous point.
