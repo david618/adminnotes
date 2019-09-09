@@ -1,6 +1,8 @@
 # git
 
-### No Authentication
+## Authentication
+
+###No Authentication
 
 If the repo has no Authentication you can just clone with git ```git clone http://github.com/david618/rttest```
 
@@ -14,7 +16,7 @@ Regular commands do not work.  Two options one Personal Access Token or SSH Key.
 
 #### Personal Access Token
 
-From GitHub settings under develop settings.  Generate a access token.  Give the token repo and gist scopes.
+From GitHub settings under develop settings.  Generate a access token.  Give the token repo and gist scopes. Now when you connect use your Github user; but instead of using your password enter your access token.  The token is a random 40+ character string of characters and numbers. 
 
 #### SSH keys
 
@@ -45,7 +47,7 @@ ssh-add my-github-key
 Now you can use git.
 
 ```
-git clone git@github.com:ArcGIS/trinity-operations.git
+git clone git@github.com:david618/rttest.git
 ```
 
 
