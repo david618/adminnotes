@@ -35,7 +35,7 @@ Using the Key
 Start ssh-agent
 
 ```
-eval `ssh-agent -s`
+eval $(ssh-agent -s)
 ```
 
 Add your private key
