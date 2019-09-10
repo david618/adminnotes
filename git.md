@@ -2,7 +2,7 @@
 
 ## Authentication
 
-###No Authentication
+### No Authentication
 
 If the repo has no Authentication you can just clone with git ```git clone http://github.com/david618/rttest```
 
