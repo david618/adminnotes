@@ -41,7 +41,7 @@ eval $(ssh-agent -s)
 Add your private key
 
 ```
-ssh-add my-github-key
+ssh-add -K my-github-key
 ```
 
 Now you can use git.
