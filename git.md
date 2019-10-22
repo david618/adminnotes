@@ -1,5 +1,26 @@
 # git
 
+## Create Branch
+
+```
+git branch newbranchname
+git checkout newbranchname
+git add .
+git commit -m "First commit of new branch"
+git push --set-upstream origin newbranchname
+```
+
+
+## Merge Changes in Master to Branch
+
+```
+git fetch
+get merge origin/master
+```
+
+Resolve conflicts if any by editing the files as needed. 
+
+
 ## Authentication
 
 ### No Authentication
