@@ -32,3 +32,11 @@ allrecords.show()
 val somerecords = sqlContext.sql("SELeCT * FROM data where id = 113163")
 somerecords.show()
 ```
+
+### Gettting Count
+
+```
+val count = sqlContext.sql("select count(*) from data")
+count.show
+count.collect.foreach(println)
+```
