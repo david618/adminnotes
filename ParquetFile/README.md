@@ -14,6 +14,8 @@ spark-shell
 Load the File; Register Table; Query; and Display
 
 ```
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+
 val parqfile = sqlContext.read.parquet("part-00000-dcccd45e-970a-46dc-89e8-ba86c1783c30-c000.snappy.parquet")
 
 parqfile.registerTempTable("data")
