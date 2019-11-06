@@ -1,5 +1,17 @@
 ## Kubernetes 
 
+### Add Autocomplete for Bash 
+
+#### Linux
+
+Install Bash Completion (e.g. yum -y install bash-completion or apt-get install bash-completion)
+
+```
+cd /etc/bash_completion.d/
+kubectl completion bash  > kubectl
+. .bashrc
+```
+
 ### Watch Command
 
 The linux watch command when running kubectl get pods doesn't work well.  Adding a clear redirected to /dev/null provides a clean output.
