@@ -15,7 +15,7 @@ git push --set-upstream origin newbranchname
 
 ```
 git fetch
-get merge origin/master
+git merge origin/master
 ```
 
 Resolve conflicts if any by editing the files as needed. 
