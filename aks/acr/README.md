@@ -41,6 +41,22 @@ docker push a4iot.azurecr.io/realtime-mat:0.10.24.946
 kubectl  create secret docker-registry a4iot-docker-creds --docker-server=a4iot.azurecr.io --docker-username=a4iot --docker-password=<PASSWORD or PASSWORD2>
 ```
 
+or 
+
+Create Service Principal that can only "pull" images following https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-service-principal
+
+You can create secret using same command as above using username SP_APP_ID and password SP_PASSWORD  
+```
+kubectl create secret docker-registry acr-creds \
+   --docker-email=YourEmailAddress \
+   --docker-server=a4iot.azurecr.io \
+   --docker-username=SP_APP_ID \
+   --docker-password=SP_PASSWORD 
+```
+
+
+
+
 ### Add to Container Spec
 
 spec.template.spec
