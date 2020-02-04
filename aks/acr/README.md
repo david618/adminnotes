@@ -54,6 +54,41 @@ kubectl create secret docker-registry acr-creds \
    --docker-password=SP_PASSWORD 
 ```
 
+Get the secret. 
+
+```
+kubectl get secret acr-creds -o yaml > somefile.yaml
+```
+
+Then edit the file as needed; removing unceessary tags. 
+
+
+#### Manually Create Secret Yaml File
+
+You could also manually create a yaml file to create secret. 
+
+```
+echo -n user-guid:password-guid | base64
+dXNlci1ndWlkOnBhc3N3b3JkLWd1aWQ=
+```
+
+```
+echo -n '{"auths":{"a4iot.azurecr.io":{"username":"user-guid","password":"password-guid","email":"admin@email.address","auth":"dXNlci1ndWlkOnBhc3N3b3JkLWd1aWQ"}}}' | base64
+eyJhdXRocyI6eyJhNGlvdC5henVyZWNyLmlvIjp7InVzZXJuYW1lIjoidXNlci1ndWlkIiwicGFzc3dvcmQiOiJwYXNzd29yZC1ndWlkIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5hZGRyZXNzIiwiYXV0aCI6ImRYTmxjaTFuZFdsa09uQmhjM04zYjNKa0xXZDFhV1EifX19
+```
+
+Create secret yaml file (e.g. a4iot.acurecr.io-secret.yaml) and put that in a4iot folder.
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: acr-creds
+  namespace: REPLACE_WITH_NS
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJhNGlvdC5henVyZWNyLmlvIjp7InVzZXJuYW1lIjoidXNlci1ndWlkIiwicGFzc3dvcmQiOiJwYXNzd29yZC1ndWlkIiwiZW1haWwiOiJhZG1pbkBlbWFpbC5hZGRyZXNzIiwiYXV0aCI6ImRYTmxjaTFuZFdsa09uQmhjM04zYjNKa0xXZDFhV1EifX19
+```
 
 
 
