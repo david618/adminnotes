@@ -43,7 +43,7 @@ You'll get an Error from server; if you currently don't have context set for kub
 
 
 ```
-curl -s https://get.helm.sh/helm-v2.16.1-linux-amd64.tar.g
+curl -s https://get.helm.sh/helm-v2.16.1-linux-amd64.tar.gz
 
 sha256sum helm-v2.16.1-linux-amd64.tar.gz
 
