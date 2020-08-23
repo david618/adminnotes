@@ -57,6 +57,7 @@ print(res)
 DataFrame[rot: double, a: double, clon: double, objectid: bigint, globalid: string, num: bigint, b: double, clat: double, SHAPE: string]
 
 
-res.rdd.map(tuple).map(lambda row: str(row[0]) + "," + str(row[1]) + ","+ str(row[2]) + ","+ str(row[3])+ ","+
-                              str(row[4])+","+ str(row[5])).saveAsTextFile("parquet-to-csv.csv")
+res.rdd.map(tuple).map(lambda row: str(row[0]) + "," + str(row[1]) + "," + str(row[2]) + "," + str(row[3]) + "," +
+                                   str(row[4]) + "," + str(row[5]) + "," + str(row[6]) + "," + str(row[7]) + "," + 
+                                   str(row[8])).saveAsTextFile("parquet-to-csv2")
 ```
