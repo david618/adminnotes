@@ -42,6 +42,10 @@ count.collect.foreach(println)
 ```
 
 ### Pyspark 
+```
+./spark-3.0.0-bin-hadoop2.7/bin/pyspark
+```
+
 
 ```
 s = SQLContext(sc)
