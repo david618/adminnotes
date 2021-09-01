@@ -12,6 +12,8 @@ git push --set-upstream origin newbranchname
 
 ## Copy Change on DEVELOP branch to RELEASE Branch
 
+cat copyChangesDevRel.sh
+
 ```
 # From branch in DEVELOP folder
 # git diff --name-only origin/DEVELOP > ~/files-changes.txt
