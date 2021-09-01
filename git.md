@@ -10,6 +10,29 @@ git commit -m "First commit of new branch"
 git push --set-upstream origin newbranchname
 ```
 
+## Copy Change on DEVELOP branch to RELEASE Branch
+
+```
+# From branch in DEVELOP folder
+# git diff --name-only origin/DEVELOP > ~/files-changes.txt
+
+# In RELEASE folder pulled latest RELEASE (e.g RELEASE/v2.3.0)
+
+DEVELOP_FOLDER="/Users/davi5017/devtopia/DEVELOP/real-time-gis-devops/"
+RELEASE_FOLDER="/Users/davi5017/devtopia/RELEASE/real-time-gis-devops/"
+
+for file in $(cat ~/files-changes.txt); do 
+  echo ${file}
+  if [ -f ${DEVELOP_FOLDER}${file} ]; then 
+    echo "cp ${DEVELOP_FOLDER}${file} ${RELEASE_FOLDER}${file}"
+    cp ${DEVELOP_FOLDER}${file} ${RELEASE_FOLDER}${file}
+  else
+    echo "rm ${RELEASE_FOLDER}${file}"
+    rm ${RELEASE_FOLDER}${file}
+  fi
+done
+```
+
 
 ## Merge Changes in Master to Branch
 
