@@ -6,6 +6,40 @@
 curl -u elastic:changeme data.sats-bds-datastore.l4lb.thisdcos.directory:9200
 </pre>
 
+## Change Shard Allocation
+
+```
+curl -s -X PUT "localhost:9200/_cluster/settings" -H 'Content-Type: application/json' -d'{"persistent": {"cluster.routing.allocation.node_concurrent_incoming_recoveries": 10}}'
+```
+
+```
+curl -s -X PUT "localhost:9200/_cluster/settings" -H 'Content-Type: application/json' -d'{"persistent": {"cluster.routing.allocation.node_initial_primaries_recoveries": 10}}'
+```
+
+These can also be done using transient instead of persistent.  Lasts until next restart. 
+
+The default value is 4.  This change seems to allow shards to allocate faster; probably at the cost of additional cpu/mem.  
+
+```
+curl localhost:9200/_cluster/settings?pretty
+{
+  "persistent" : {
+    "cluster" : {
+      "routing" : {
+        "allocation" : {
+          "node_concurrent_incoming_recoveries" : "10"
+        }
+      }
+    },
+    "slm" : {
+      "retention_schedule" : "0 30 1 * * ?"
+    }
+  },
+  "transient" : { }
+}
+```
+
+
 ## Insert a GeoPoint
 
 <pre>
